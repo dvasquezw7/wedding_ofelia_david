@@ -1,0 +1,24 @@
+/* ==========================================
+   CRITICAL MOBILE FIX - Verse
+   ========================================== */
+@media (max-width: 768px) {
+    .verse-content p {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .verse-content p.verse-citation {
+        font-size: 0.9rem !important;
+        letter-spacing: 1px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .verse-content p {
+        font-size: 1.2rem !important;
+    }
+
+    .verse-content p.verse-citation {
+        font-size: 0.8rem !important;
+    }
+}
