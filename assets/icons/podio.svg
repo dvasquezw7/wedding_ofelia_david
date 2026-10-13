@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Microphone -->
+  <path d="M32 18 L32 10 C32 8 34 6 36 6"/>
+  <circle cx="38" cy="6" r="2"/>
+  <!-- Lectern top -->
+  <path d="M14 18 L50 18 L48 24 L16 24 Z"/>
+  <!-- Body -->
+  <path d="M20 24 L20 52 L44 52 L44 24"/>
+  <rect x="25" y="30" width="14" height="16" rx="1"/>
+  <ellipse cx="32" cy="38" rx="2.5" ry="4"/>
+  <!-- Base -->
+  <path d="M16 52 L48 52 L48 57 L16 57 Z"/>
+</svg>

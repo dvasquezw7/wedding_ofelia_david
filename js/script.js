@@ -2,7 +2,7 @@
 // COUNTDOWN TIMER
 // ==========================================
 function initCountdown() {
-    const weddingDate = new Date('2026-11-15T16:00:00').getTime();
+    const weddingDate = new Date('2026-11-15T16:30:00').getTime();
     const countdownElement = document.getElementById('countdown');
 
     if (!countdownElement) return;
@@ -61,8 +61,8 @@ function initCalendar() {
             title: 'Boda de Ofelia y David',
             description: '¡Día de nuestra boda! Estamos felices de compartirlo contigo.',
             location: 'Cochabamba, Bolivia',
-            start: '20261115T130000',
-            end: '20261116T020000'
+            start: '20261115T163000',
+            end: '20261115T210000'
         };
 
         const icsContent = [
@@ -162,9 +162,6 @@ function initGallery() {
     if (!gallery) return;
 
     const photos = [
-        'assets/photos/1.jpeg',
-        'assets/photos/2.jpeg',
-        'assets/photos/3.jpeg',
         'assets/photos/4.jpeg',
         'assets/photos/5.jpeg',
         'assets/photos/6.jpeg'
@@ -180,9 +177,9 @@ function initGallery() {
             </div>
         `;
 
-        // Abrir lightbox al hacer clic
+        // Abrir lightbox en modo carrusel al hacer clic
         item.addEventListener('click', () => {
-            openLightbox(src);
+            openLightbox(src, photos, index);
         });
 
         gallery.appendChild(item);
@@ -208,11 +205,30 @@ function initLightbox() {
         }
     });
 
-    // Cerrar con tecla Esc
+    // Teclado: Esc cierra, flechas navegan
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showLightboxSlide(-1);
+        if (e.key === 'ArrowRight') showLightboxSlide(1);
+    });
+
+    // Botones anterior / siguiente
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    if (prevBtn) prevBtn.addEventListener('click', () => showLightboxSlide(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => showLightboxSlide(1));
+
+    // Deslizar en celular
+    let touchStartX = null;
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(deltaX) > 50) showLightboxSlide(deltaX < 0 ? 1 : -1);
+        touchStartX = null;
     });
 
     // Soporte para QR Clickable
@@ -254,7 +270,24 @@ function initLightbox() {
 }
 
 
-function openLightbox(src) {
+// Estado del carrusel: lista de fotos abierta y posición actual
+let lightboxSlides = [];
+let lightboxIndex = 0;
+
+function showLightboxSlide(step) {
+    if (lightboxSlides.length < 2) return;
+    lightboxIndex = (lightboxIndex + step + lightboxSlides.length) % lightboxSlides.length;
+    updateLightboxSlide();
+}
+
+function updateLightboxSlide() {
+    const lightboxImg = document.getElementById('lightbox-img');
+    const counter = document.getElementById('lightbox-counter');
+    if (lightboxImg) lightboxImg.src = lightboxSlides[lightboxIndex];
+    if (counter) counter.textContent = `${lightboxIndex + 1} / ${lightboxSlides.length}`;
+}
+
+function openLightbox(src, slides = [src], index = 0) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const downloadLink = document.getElementById('lightbox-download');
@@ -262,7 +295,10 @@ function openLightbox(src) {
 
     if (!lightbox || !lightboxImg) return;
 
-    lightboxImg.src = src;
+    lightboxSlides = slides;
+    lightboxIndex = index;
+    updateLightboxSlide();
+    lightbox.classList.toggle('single', slides.length < 2);
 
     // Update download link visibility and source
     if (downloadLink) {
