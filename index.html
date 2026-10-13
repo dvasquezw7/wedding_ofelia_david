@@ -4,332 +4,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofelia & David - Nuestra Boda</title>
+    <title>Ofelia & David · 15.11.2026</title>
     <meta name="description"
-        content="Te invitamos a celebrar nuestro día especial el 15 de Noviembre, 2026. Ofelia & David.">
+        content="Ofelia & David se casan el domingo 15 de noviembre de 2026 en Cochabamba. Acompáñanos.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ofelia & David - Nuestra Boda">
+    <meta property="og:title" content="Ofelia & David · 15.11.2026">
     <meta property="og:description"
-        content="Te invitamos a celebrar nuestro día especial. Únete a nosotros en la celebración de nuestro amor.">
+        content="Hay momentos que se esperan toda la vida. Queremos que seas parte del nuestro.">
     <meta property="og:image" content="https://dvasquezw7.github.io/wedding_ofelia_david/assets/images/og_preview.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Ofelia & David - Nuestra Boda">
+    <meta property="twitter:title" content="Ofelia & David · 15.11.2026">
     <meta property="twitter:description"
-        content="Te invitamos a celebrar nuestro día especial. Únete a nosotros en la celebración de nuestro amor.">
+        content="Hay momentos que se esperan toda la vida. Queremos que seas parte del nuestro.">
     <meta property="twitter:image" content="https://dvasquezw7.github.io/wedding_ofelia_david/assets/images/og_preview.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Josefin+Sans:wght@200;300&family=Montserrat:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:wght@200;300;400&family=Pinyon+Script&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!-- Music Player 
-    <div id="music-player" class="music-player">
-        <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
-            <span class="music-icon">🎵</span>
-        </button>
-    </div>
-    -->
+    <!-- Line icon sprite (stroke follows currentColor) -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="i-rings" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="29" r="10" />
+                <circle cx="30" cy="29" r="10" />
+                <path d="M15 13 L18 9 L21 13 L18 17 Z" />
+                <path d="M14 13 L22 13" />
+            </g>
+        </symbol>
+        <symbol id="i-lectern" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 14 V9 C24 7.5 25.2 6 27 6" />
+                <circle cx="28.5" cy="6" r="1.5" />
+                <path d="M11 14 H37 L35.5 19 H12.5 Z" />
+                <path d="M15 19 V40 H33 V19" />
+                <path d="M20 24 H28 V34 H20 Z" />
+                <path d="M12 40 H36 V43 H12 Z" />
+            </g>
+        </symbol>
+        <symbol id="i-camera" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17 C7 15.3 8.3 14 10 14 H15.5 L18.5 9.5 H29.5 L32.5 14 H38 C39.7 14 41 15.3 41 17 V36 C41 37.7 39.7 39 38 39 H10 C8.3 39 7 37.7 7 36 Z" />
+                <circle cx="24" cy="26" r="8" />
+                <circle cx="24" cy="26" r="4" />
+                <path d="M35 18.5 H37" />
+            </g>
+        </symbol>
+        <symbol id="i-toast" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 15 L20 18 L18 28 C17.3 30.8 13.6 31.4 11.6 29.2 C10.3 27.8 10 26 10.3 24 Z" />
+                <path d="M14.5 30.3 L12 41" />
+                <path d="M8 40 L16 42" />
+                <path d="M37 15 L28 18 L30 28 C30.7 30.8 34.4 31.4 36.4 29.2 C37.7 27.8 38 26 37.7 24 Z" />
+                <path d="M33.5 30.3 L36 41" />
+                <path d="M32 42 L40 40" />
+                <path d="M24 5 V10" />
+                <path d="M18 7 L20 11" />
+                <path d="M30 7 L28 11" />
+            </g>
+        </symbol>
+        <symbol id="i-cloche" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="12" r="2" />
+                <path d="M24 14 V16" />
+                <path d="M9 33 C9 24 15.7 16 24 16 C32.3 16 39 24 39 33" />
+                <path d="M6 33 H42" />
+                <path d="M9 37 H39" />
+                <path d="M15 26 C16.5 23 19 21 22 20" />
+            </g>
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 43 C24 43 37 30 37 19 C37 11.8 31.2 6 24 6 C16.8 6 11 11.8 11 19 C11 30 24 43 24 43 Z" />
+                <circle cx="24" cy="19" r="5" />
+            </g>
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="11" width="32" height="29" rx="2" />
+                <path d="M8 19 H40" />
+                <path d="M16 7 V14" />
+                <path d="M32 7 V14" />
+                <path d="M24 25 V33" />
+                <path d="M20 29 H28" />
+            </g>
+        </symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="12" height="12" rx="1.5" />
+                <path d="M5 15 H4 A1 1 0 0 1 3 14 V4 A1 1 0 0 1 4 3 H14 A1 1 0 0 1 15 4 V5" />
+            </g>
+        </symbol>
+        <!-- Ornament: small branch used under section titles -->
+        <symbol id="i-sprig" viewBox="0 0 120 24">
+            <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                <path d="M4 12 H116" />
+                <path d="M40 12 C44 6 50 5 54 6 C50 9 46 11 40 12 Z" />
+                <path d="M40 12 C44 18 50 19 54 18 C50 15 46 13 40 12 Z" />
+                <path d="M80 12 C76 6 70 5 66 6 C70 9 74 11 80 12 Z" />
+                <path d="M80 12 C76 18 70 19 66 18 C70 15 74 13 80 12 Z" />
+                <circle cx="60" cy="12" r="2.2" fill="currentColor" />
+            </g>
+        </symbol>
+    </svg>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#inicio" class="nav-link">Inicio</a>
-            <a href="#calendario" class="nav-link">Fecha</a>
-
-            <a href="#itinerario" class="nav-link">Itinerario</a>
-            <a href="#galeria" class="nav-link">Galería</a>
-            <a href="#regalos" class="nav-link">Regalos</a>
-            <a href="#rsvp" class="nav-link">Confirmar</a>
-            <!-- <a href="#zoom" class="nav-link">Zoom</a> -->
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+    <!-- ============ PORTADA ============ -->
     <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-text fade-in">
-                <p class="hero-subtitle">Te invitamos a<br>nuestra boda</p>
-                <h1 class="hero-title">Ofelia <span class="ampersand">&</span> David</h1>
-                <div class="divider"></div>
-                <p class="hero-date">Domingo 15 de Noviembre, 2026</p>
-                <p class="hero-script">¡Te esperamos!</p>
-                <a href="#rsvp" class="cta-button">Confirmar Asistencia</a>
-            </div>
+            <p class="hero-subtitle">Te invitamos a<br>nuestra boda</p>
+            <h1 class="hero-title">Ofelia <span class="ampersand">&</span> David</h1>
+            <div class="hero-rule"></div>
+            <p class="hero-date">Domingo 15 de Noviembre, 2026</p>
+            <p class="hero-script">¡Te esperamos!</p>
+            <a href="#rsvp" class="btn-outline">Confirmar asistencia</a>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
+        <a href="#bienvenida" class="hero-scroll" aria-label="Seguir bajando"><span></span></a>
+    </section>
+
+    <!-- ============ BIENVENIDA ============ -->
+    <section id="bienvenida" class="intro">
+        <div class="narrow reveal">
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+            <p class="intro-text">Hay momentos que se esperan toda la vida.<br>Queremos que seas parte del nuestro.</p>
+            <p class="intro-sign">Ofelia & David</p>
         </div>
     </section>
 
-    <!-- Calendar Section -->
-    <section id="calendario" class="calendar-section">
-        <div class="container">
-            <h2 class="section-title">Guarda la Fecha</h2>
-            <div class="calendar-wrapper">
-                <div class="calendar-header">
-                    <h3>Noviembre 2026</h3>
-                </div>
-                <div class="calendar-grid">
-                    <div class="weekdays">
-                        <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-                    </div>
-                    <div class="days">
-                        <!-- Days for November 2026. 1st is Sunday -->
-                        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
-                        <span>1</span>
-                        <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-                        <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span
-                            class="wedding-day">15</span>
-                        <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
-                        <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
-                        <span>30</span>
-                    </div>
-                </div>
-                <div class="calendar-footer">
-                    <a href="#" id="add-calendar-btn" class="add-to-calendar">Agendar</a>
-                </div>
-            </div>
+    <!-- ============ FECHA ============ -->
+    <section id="calendario" class="section section-tint">
+        <header class="sec-head reveal">
+            <span class="sec-kicker">Cuándo</span>
+            <h2 class="sec-title">La Fecha</h2>
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+        </header>
+
+        <div class="date-block reveal">
+            <span class="date-side">Domingo</span>
+            <span class="date-day">15</span>
+            <span class="date-side">Noviembre</span>
+        </div>
+        <p class="date-year reveal">2026 · 16:30 hrs</p>
+
+        <div id="countdown" class="countdown reveal" aria-label="Tiempo que falta">
+            <div class="countdown-item"><span id="days" class="countdown-number">00</span><span
+                    class="countdown-label">días</span></div>
+            <div class="countdown-item"><span id="hours" class="countdown-number">00</span><span
+                    class="countdown-label">horas</span></div>
+            <div class="countdown-item"><span id="minutes" class="countdown-number">00</span><span
+                    class="countdown-label">min</span></div>
+            <div class="countdown-item"><span id="seconds" class="countdown-number">00</span><span
+                    class="countdown-label">seg</span></div>
+        </div>
+
+        <a href="#" id="add-calendar-btn" class="text-link reveal">
+            <svg class="text-link-icon"><use href="#i-calendar" /></svg>
+            Añadir a mi calendario
+        </a>
+    </section>
+
+    <!-- ============ UBICACIÓN ============ -->
+    <section id="evento" class="section">
+        <header class="sec-head reveal">
+            <span class="sec-kicker">Dónde</span>
+            <h2 class="sec-title">Ubicación</h2>
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+        </header>
+
+        <div class="venue reveal">
+            <p class="venue-name">Casa de Campo Serpabi</p>
+            <p class="venue-city">Cochabamba · Bolivia</p>
+            <a href="https://maps.app.goo.gl/E55yKciSzSSBQ7m19" target="_blank" rel="noopener" class="btn-outline">
+                <svg class="btn-icon"><use href="#i-pin" /></svg>
+                Cómo llegar
+            </a>
         </div>
     </section>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section">
-        <div class="container">
-            <h2 class="section-title">Faltan</h2>
-            <div id="countdown" class="countdown">
-                <div class="countdown-item">
-                    <span id="days" class="countdown-number">00</span>
-                    <span class="countdown-label">Días</span>
+    <!-- ============ PROGRAMA ============ -->
+    <section id="itinerario" class="section section-tint">
+        <header class="sec-head reveal">
+            <span class="sec-kicker">El día</span>
+            <h2 class="sec-title">Programa</h2>
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+        </header>
+
+        <ol class="timeline">
+            <li class="timeline-item reveal">
+                <svg class="timeline-icon"><use href="#i-rings" /></svg>
+                <div class="timeline-text">
+                    <span class="timeline-time">16:30</span>
+                    <h3>Recepción</h3>
+                    <p>Bienvenida a los invitados</p>
                 </div>
-                <div class="countdown-item">
-                    <span id="hours" class="countdown-number">00</span>
-                    <span class="countdown-label">Horas</span>
+            </li>
+            <li class="timeline-item reveal">
+                <svg class="timeline-icon"><use href="#i-lectern" /></svg>
+                <div class="timeline-text">
+                    <span class="timeline-time">17:00 – 17:30</span>
+                    <h3>Consejo Bíblico</h3>
+                    <p>El momento más especial del día</p>
                 </div>
-                <div class="countdown-item">
-                    <span id="minutes" class="countdown-number">00</span>
-                    <span class="countdown-label">Minutos</span>
+            </li>
+            <li class="timeline-item reveal">
+                <svg class="timeline-icon"><use href="#i-camera" /></svg>
+                <div class="timeline-text">
+                    <span class="timeline-time">17:30 – 18:15</span>
+                    <h3>Fotografías</h3>
+                    <p>Con familia y amigos</p>
                 </div>
-                <div class="countdown-item">
-                    <span id="seconds" class="countdown-number">00</span>
-                    <span class="countdown-label">Segundos</span>
+            </li>
+            <li class="timeline-item reveal">
+                <svg class="timeline-icon"><use href="#i-toast" /></svg>
+                <div class="timeline-text">
+                    <span class="timeline-time">18:30 – 19:00</span>
+                    <h3>Agradecimiento</h3>
+                    <p>Brindis y aperitivo</p>
                 </div>
-            </div>
+            </li>
+            <li class="timeline-item reveal">
+                <svg class="timeline-icon"><use href="#i-cloche" /></svg>
+                <div class="timeline-text">
+                    <span class="timeline-time">20:00 – 21:00</span>
+                    <h3>Cena</h3>
+                    <p>Compartimos la mesa</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- ============ NOSOTROS ============ -->
+    <section id="galeria" class="section">
+        <header class="sec-head reveal">
+            <span class="sec-kicker">Nuestra historia</span>
+            <h2 class="sec-title">Nosotros</h2>
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+        </header>
+        <div class="photo-strip reveal" id="gallery">
+            <!-- Las fotos se generan desde js/script.js -->
         </div>
     </section>
 
+    <!-- ============ REGALOS ============ -->
+    <section id="regalos" class="section section-tint">
+        <header class="sec-head reveal">
+            <span class="sec-kicker">Un detalle</span>
+            <h2 class="sec-title">Regalos</h2>
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+        </header>
 
+        <p class="section-lead reveal">Lo más valioso para nosotros es que nos acompañes. Si además deseas tener un
+            detalle con nosotros, puedes hacerlo por transferencia.</p>
 
-    <!-- Event Details Section -->
-    <section id="evento" class="event-section">
-        <div class="container">
-            <h2 class="section-title">Ubicación</h2>
-            <div class="event-grid">
-                <div class="event-card fade-in-up">
-                    <div class="event-icon">
-                        <img src="assets/icons/recepcion.svg" alt="Lugar de la celebración"
-                            class="event-card-icon colored-icon" />
-                    </div>
-                    <h3>Casa de Campo Serpabi</h3>
-                    <p class="event-address">Cochabamba, Bolivia</p>
-                    <a href="https://maps.app.goo.gl/E55yKciSzSSBQ7m19" target="_blank" class="event-link">Cómo
-                        llegar</a>
+        <div class="gift-panel reveal">
+            <button type="button" class="gift-qr" aria-label="Ampliar código QR">
+                <img src="assets/images/qr_banco.jpeg" alt="Código QR para transferencia" class="clickable-qr">
+                <span class="gift-qr-hint">Toca para ampliar</span>
+            </button>
+            <dl class="gift-data">
+                <div>
+                    <dt>Banco</dt>
+                    <dd>BCP</dd>
                 </div>
-            </div>
+                <div>
+                    <dt>Titular</dt>
+                    <dd>Montero Zubillaga Gladys Ofelia</dd>
+                </div>
+                <div>
+                    <dt>N° de cuenta</dt>
+                    <dd class="copy-row">
+                        <span>401-51249353-3-06</span>
+                        <button class="copy-btn" data-clipboard-text="401-51249353-3-06"
+                            aria-label="Copiar número de cuenta">
+                            <svg width="16" height="16"><use href="#i-copy" /></svg>
+                        </button>
+                    </dd>
+                </div>
+            </dl>
         </div>
     </section>
 
-    <!-- Itinerary Section -->
-    <section id="itinerario" class="itinerary-section">
-        <div class="container">
-            <h2 class="section-title">Itinerario del Día</h2>
-            <div class="itinerary-timeline">
-                <div class="itinerary-item fade-in-up">
-                    <div class="itinerary-time">16:30</div>
-                    <div class="itinerary-icon">
-                        <img src="assets/icons/recepcion.svg" alt="Recepción" class="custom-svg-icon" />
-                    </div>
-                    <div class="itinerary-content">
-                        <h3>Recepción</h3>
-                        <p>Bienvenida a los invitados</p>
-                    </div>
-                </div>
-                <div class="itinerary-item fade-in-up">
-                    <div class="itinerary-time">17:00 - 17:30</div>
-                    <div class="itinerary-icon">
-                        <img src="assets/icons/podio.svg" alt="Consejo Bíblico" class="custom-svg-icon" />
-                    </div>
-                    <div class="itinerary-content">
-                        <h3>Consejo Bíblico</h3>
-                        <p>Casa de Campo SERPABI</p>
-                    </div>
-                </div>
-                <div class="itinerary-item fade-in-up">
-                    <div class="itinerary-time">17:30 - 18:15</div>
-                    <div class="itinerary-icon">
-                        <img src="assets/icons/camara.svg" alt="Fotos" class="custom-svg-icon" />
-                    </div>
-                    <div class="itinerary-content">
-                        <h3>Fotos</h3>
-                        <p>Familia y amigos</p>
-                    </div>
-                </div>
-                <div class="itinerary-item fade-in-up">
-                    <div class="itinerary-time">18:30 - 19:00</div>
-                    <div class="itinerary-icon">
-                        <img src="assets/icons/brindis.svg" alt="Agradecimiento" class="custom-svg-icon" />
-                    </div>
-                    <div class="itinerary-content">
-                        <h3>Agradecimiento</h3>
-                        <p>Aperitivo</p>
-                    </div>
-                </div>
-                <div class="itinerary-item fade-in-up">
-                    <div class="itinerary-time">20:00 - 21:00</div>
-                    <div class="itinerary-icon">
-                        <img src="assets/icons/comida.svg" alt="Cena" class="custom-svg-icon" />
-                    </div>
-                    <div class="itinerary-content">
-                        <h3>Cena</h3>
-                        <p>Celebración</p>
-                    </div>
-                </div>
+    <!-- ============ CONFIRMACIÓN ============ -->
+    <section id="rsvp" class="section">
+        <header class="sec-head reveal">
+            <span class="sec-kicker">Te esperamos</span>
+            <h2 class="sec-title">Confirmación</h2>
+            <svg class="sprig"><use href="#i-sprig" /></svg>
+        </header>
+
+        <div class="pass reveal">
+            <span class="pass-label">Pase válido para</span>
+            <strong id="seats-display" class="pass-number">2</strong>
+            <span id="seats-unit" class="pass-label">personas</span>
+        </div>
+
+        <form id="rsvp-form" class="rsvp-form reveal">
+            <div class="field">
+                <input type="text" id="name" name="name" required placeholder=" " readonly>
+                <label for="name">Invitado(s)</label>
             </div>
-        </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Nuestros Momentos</h2>
-            <div class="gallery-grid" id="gallery">
-                <!-- Images will be generated -->
+            <div class="field">
+                <span class="field-caption">¿Nos acompañarás?</span>
+                <div class="choice" id="attendance-choice" role="radiogroup">
+                    <button type="button" class="choice-option" data-value="yes" role="radio"
+                        aria-checked="false">Sí, ahí estaré</button>
+                    <button type="button" class="choice-option" data-value="no" role="radio"
+                        aria-checked="false">No podré ir</button>
+                </div>
+                <input type="hidden" id="attendance" name="attendance" required>
             </div>
-        </div>
-    </section>
 
-    <!-- Gifts Section -->
-    <section id="regalos" class="gifts-section">
-        <div class="container">
-            <h2 class="section-title">Mesa de Regalos</h2>
-            <p class="gifts-subtitle">Tu presencia es nuestro mejor regalo, pero si deseas obsequiarnos algo, puedes
-                hacerlo aquí:</p>
-            <div class="gifts-container">
-                <div class="gift-card">
-                    <div class="gift-icon">
-                        <img src="assets/icons/QR.svg" alt="QR" class="gift-card-icon" />
-                    </div>
-                    <h3>Transferencia por QR</h3>
-                    <div class="bank-details">
-                        <p>Escanea el código QR desde tu aplicación bancaria</p>
-                        <div
-                            style="margin: 20px auto; width: 200px; height: 200px; background: white; padding: 10px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer;">
-                            <img src="assets/images/qr_banco.jpeg" alt="QR para transferencia" class="clickable-qr"
-                                style="width: 100%; height: 100%; object-fit: contain;">
-                        </div>
-                        <p><strong>Banco:</strong> BCP</p>
-                        <p><strong>Nombre:</strong> Montero Zubillaga Gladys Ofelia</p>
-
-                        <div class="copy-row">
-                            <p><strong>N° Cuenta:</strong> <span class="copy-text">401-51249353-3-06</span></p>
-                            <button class="copy-btn" data-clipboard-text="401-51249353-3-06"
-                                aria-label="Copiar número de cuenta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="field">
+                <textarea id="message" name="message" rows="3" placeholder=" "></textarea>
+                <label for="message">Déjanos unas palabras (opcional)</label>
             </div>
-        </div>
-    </section>
 
-    <!-- RSVP Section -->
-    <section id="rsvp" class="rsvp-section">
-        <div class="container">
-            <h2 class="section-title">Confirma tu Asistencia</h2>
-
-            <form id="rsvp-form" class="rsvp-form">
-                <!-- Reserved Seats Message -->
-                <div class="rsvp-seats-info">
-                    <span class="seats-label">Hemos reservado</span>
-                    <strong id="seats-display" class="seats-number">2</strong>
-                    <span id="guest-label" class="seats-label">lugares en su honor</span>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="name" name="name" required placeholder=" " readonly>
-                    <label for="name">Invitado(s)</label>
-                </div>
-
-                <div class="form-group">
-                    <div class="custom-select-wrapper" id="attendance-wrapper">
-                        <div class="custom-select-trigger">
-                            <span id="select-label"></span>
-                            <div class="arrow"></div>
-                        </div>
-                        <div class="custom-options">
-                            <div class="custom-option" data-value="yes">Sí, asistiré con gusto</div>
-                            <div class="custom-option" data-value="no">No podré asistir</div>
-                        </div>
-                        <input type="hidden" id="attendance" name="attendance" required>
-                        <label for="attendance" class="custom-select-label">¿Asistirás?</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
-                    <label for="message">Mensaje para los Novios (Opcional)</label>
-                </div>
-                <!-- Desactivado hasta tener el Google Form nuevo -->
-                <button type="submit" class="submit-button" disabled>Confirmación disponible pronto</button>
-                <div id="form-message" class="form-message"></div>
-            </form>
-        </div>
+            <!-- Desactivado hasta tener el Google Form nuevo -->
+            <button type="submit" class="submit-button" disabled>Confirmación disponible pronto</button>
+            <div id="form-message" class="form-message"></div>
+        </form>
     </section>
 
     <!-- Zoom Section (oculta por ahora)
-    <section id="zoom" class="zoom-section">
-        <div class="container">
-            <h2 class="section-title">Acompañanos Virtualmente</h2>
-            <div class="zoom-card fade-in-up">
-                <p class="zoom-text">Si no puedes estar presencialmente, podrás conectarte al Consejo Bíblico
-                    que se
-                    transmitirá por Zoom.</p>
-                <a href="https://jworg.zoom.us/j/6956456735?pwd=L1M4R1JnV21xSTNpbS9DT2NyYy94QT09" target="_blank"
-                    style="text-decoration: none; color: inherit; display: block;">
-                    <div class="zoom-icon">
-                        <img src="assets/icons/zoom.svg" alt="Zoom" class="zoom-svg-icon" />
-                    </div>
-                </a>
-                <p class="zoom-details">
-                    <strong>ID:</strong> 695 645 6735<br>
-                    <strong>Código:</strong> 1234
-                </p>
-            </div>
-        </div>
+    <section id="zoom" class="section section-tint">
+        <header class="sec-head">
+            <span class="sec-kicker">A la distancia</span>
+            <h2 class="sec-title">Transmisión</h2>
+        </header>
+        <p class="section-lead">Si no puedes estar presencialmente, podrás conectarte al Consejo Bíblico por Zoom.</p>
+        <p class="section-lead">
+            <a href="https://jworg.zoom.us/j/6956456735?pwd=L1M4R1JnV21xSTNpbS9DT2NyYy94QT09" target="_blank" class="btn-outline">Unirme por Zoom</a>
+        </p>
+        <p class="section-lead">ID: 695 645 6735 · Código: 1234</p>
     </section>
     -->
 
-    <!-- Footer -->
+    <!-- ============ CIERRE ============ -->
     <footer class="footer">
-        <div class="container">
-            <p class="footer-title">¡Te esperamos!</p>
-            <p class="footer-subtitle">con mucho cariño</p>
-            <p class="footer-signature">Ofelia & David</p>
+        <div class="monogram">
+            <span>O</span><span class="monogram-amp">&</span><span>D</span>
         </div>
+        <p class="footer-date">15 · 11 · 2026</p>
+        <p class="footer-text">Gracias por acompañarnos en el comienzo<br>de esta nueva etapa.</p>
+        <p class="footer-sign">Ofelia & David</p>
     </footer>
 
     <!-- Lightbox -->
@@ -345,12 +371,11 @@
         </a>
         <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">&#8249;</button>
         <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="Foto expandida">
+            <img id="lightbox-img" src="" alt="Foto ampliada">
         </div>
         <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">&#8250;</button>
         <div id="lightbox-counter" class="lightbox-counter"></div>
     </div>
-
 
     <script src="js/script.js"></script>
 </body>

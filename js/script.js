@@ -32,22 +32,6 @@ function initCountdown() {
 }
 
 // ==========================================
-// NAVIGATION BAR SCROLL EFFECT
-// ==========================================
-function initNavbar() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 100) {
-            navbar.classList.add('visible');
-        } else {
-            navbar.classList.remove('visible');
-        }
-    }, { passive: true });
-}
-
-// ==========================================
 // CALENDAR EVENT GENERATION
 // ==========================================
 function initCalendar() {
@@ -60,7 +44,7 @@ function initCalendar() {
         const event = {
             title: 'Boda de Ofelia y David',
             description: '¡Día de nuestra boda! Estamos felices de compartirlo contigo.',
-            location: 'Cochabamba, Bolivia',
+            location: 'Casa de Campo Serpabi, Cochabamba, Bolivia',
             start: '20261115T163000',
             end: '20261115T210000'
         };
@@ -92,12 +76,6 @@ function initCalendar() {
 }
 
 // ==========================================
-// SMOOTH SCROLL FOR NAVIGATION LINKS
-// ==========================================
-// Smooth scroll handled by CSS scroll-behavior: smooth
-
-
-// ==========================================
 // INTERSECTION OBSERVER FOR ANIMATIONS
 // ==========================================
 function initScrollAnimations() {
@@ -115,44 +93,10 @@ function initScrollAnimations() {
     }, observerOptions);
 
     // Observe animatable elements
-    document.querySelectorAll('.event-card, .fade-in-up, .itinerary-item').forEach(el => {
+    document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
 }
-
-/*
-// ==========================================
-// MUSIC PLAYER
-// ==========================================
-function initMusicPlayer() {
-    const musicToggle = document.getElementById('music-toggle');
-    if (!musicToggle) return;
-
-    let isPlaying = false;
-    const audio = new Audio();
-    audio.loop = true;
-    audio.volume = 0.3;
-
-    // Note: Link your wedding music file here
-    // audio.src = 'path/to/your/wedding-music.mp3';
-
-    musicToggle.addEventListener('click', () => {
-        if (!audio.src || audio.src.includes('undefined')) {
-            console.log('No music file set. Add audio.src in script.js');
-            return;
-        }
-
-        if (isPlaying) {
-            audio.pause();
-            musicToggle.classList.remove('playing');
-        } else {
-            audio.play().catch(e => console.log('Audio play failed:', e));
-            musicToggle.classList.add('playing');
-        }
-        isPlaying = !isPlaying;
-    });
-}
-*/
 
 // ==========================================
 // GALLERY GENERATION
@@ -168,14 +112,9 @@ function initGallery() {
     ];
 
     photos.forEach((src, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item fade-in-up';
-        item.innerHTML = `
-            <img src="${src}" alt="Momento ${index + 1}" loading="lazy">
-            <div class="gallery-overlay">
-                <span>+</span>
-            </div>
-        `;
+        const item = document.createElement('figure');
+        item.className = 'photo';
+        item.innerHTML = `<img src="${src}" alt="Ofelia y David, foto ${index + 1}" loading="lazy">`;
 
         // Abrir lightbox en modo carrusel al hacer clic
         item.addEventListener('click', () => {
@@ -400,6 +339,7 @@ function initRSVPForm() {
             formMessage.textContent = '¡Gracias por confirmar! Tu respuesta ha sido enviada con éxito.';
             formMessage.style.display = 'block';
             form.reset();
+            document.querySelectorAll('.choice-option').forEach(opt => opt.setAttribute('aria-checked', 'false'));
 
             // Mantener el nombre del invitado si los parámetros siguen ahí
             initGuestLimit();
@@ -459,6 +399,10 @@ function initGuestLimit() {
     if (displayElement) {
         displayElement.textContent = seats;
     }
+    const unitElement = document.getElementById('seats-unit');
+    if (unitElement) {
+        unitElement.textContent = seats === '1' ? 'persona' : 'personas';
+    }
 
     // Handle Guest Name (guest)
     const guestName = params.get('guest');
@@ -470,9 +414,7 @@ function initGuestLimit() {
     // Handle Gifts Visibility (regalos=no hides the section)
     if (params.get('regalos') === 'no') {
         const giftsSection = document.getElementById('regalos');
-        const giftsNavLink = document.querySelector('.nav-link[href="#regalos"]');
         if (giftsSection) giftsSection.remove();
-        if (giftsNavLink) giftsNavLink.remove();
     }
 }
 
@@ -508,52 +450,20 @@ function initCopyButtons() {
 
 
 // ==========================================
-// CUSTOM DROPDOWN LOGIC
+// ATTENDANCE CHOICE (Sí / No)
 // ==========================================
-function initCustomDropdown() {
-    const wrapper = document.getElementById('attendance-wrapper');
-    if (!wrapper) return;
-
-    const trigger = wrapper.querySelector('.custom-select-trigger');
-    const customOptions = wrapper.querySelectorAll('.custom-option');
+function initAttendanceChoice() {
+    const group = document.getElementById('attendance-choice');
     const hiddenInput = document.getElementById('attendance');
-    const labelSpan = document.getElementById('select-label');
+    if (!group || !hiddenInput) return;
 
-    // Toggle open/close
-    trigger.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent document click from closing immediately
-        wrapper.classList.toggle('open');
-    });
-
-    // Handle option selection
-    customOptions.forEach(option => {
-        option.addEventListener('click', function (e) {
-            e.stopPropagation(); // Stop propagation
-
-            // Remove selected class from all
-            customOptions.forEach(opt => opt.classList.remove('selected'));
-            // Add to current
-            this.classList.add('selected');
-
-            // Update visible text and hidden value
-            const value = this.getAttribute('data-value');
-            const text = this.textContent;
-
-            labelSpan.textContent = text;
-            labelSpan.style.color = 'var(--text-dark)'; // Ensure text is visible
-            hiddenInput.value = value;
-
-            // Visual feedback (filled state for label)
-            wrapper.classList.add('filled');
-            wrapper.classList.remove('open');
+    const options = group.querySelectorAll('.choice-option');
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            options.forEach(opt => opt.setAttribute('aria-checked', 'false'));
+            option.setAttribute('aria-checked', 'true');
+            hiddenInput.value = option.dataset.value;
         });
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!wrapper.contains(e.target)) {
-            wrapper.classList.remove('open');
-        }
     });
 }
 
@@ -563,11 +473,7 @@ function initCustomDropdown() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
-    initNavbar();
-    // initSmoothScroll(); // Handled by CSS
-
     initCalendar();
-    // initMusicPlayer();
     initGallery();
     initScrollAnimations();
     initLightbox();
@@ -575,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGuestLimit();
     initParallax();
     initCopyButtons();
-    initCustomDropdown();
+    initAttendanceChoice();
 
 
 
