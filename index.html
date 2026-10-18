@@ -82,6 +82,15 @@
                 <path d="M15 26 C16.5 23 19 21 22 20" />
             </g>
         </symbol>
+        <symbol id="i-moon" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 9 C22 10.5 16 17.5 16 26 C16 35.4 23.6 43 33 43 C35.6 43 38 42.4 40.2 41.4 C38 42 29 41 24.5 34 C20 27 22 15 30 9 Z" />
+                <path d="M12 10 V16" />
+                <path d="M9 13 H15" />
+                <path d="M38 18 V22" />
+                <path d="M36 20 H40" />
+            </g>
+        </symbol>
         <symbol id="i-pin" viewBox="0 0 48 48">
             <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M24 43 C24 43 37 30 37 19 C37 11.8 31.2 6 24 6 C16.8 6 11 11.8 11 19 C11 30 24 43 24 43 Z" />
@@ -182,6 +191,7 @@
         <div class="venue reveal">
             <p class="venue-name">Casa de Campo Serpabi</p>
             <p class="venue-city">Cochabamba · Bolivia</p>
+            <p class="venue-note">El Consejo Bíblico y la Recepción<br>se celebrarán en este mismo lugar</p>
             <a href="https://maps.app.goo.gl/E55yKciSzSSBQ7m19" target="_blank" rel="noopener" class="btn-outline">
                 <svg class="btn-icon"><use href="#i-pin" /></svg>
                 Cómo llegar
@@ -236,6 +246,14 @@
                     <span class="timeline-time">20:00 – 21:00</span>
                     <h3>Cena</h3>
                     <p>Compartimos la mesa</p>
+                </div>
+            </li>
+            <li class="timeline-item reveal">
+                <svg class="timeline-icon"><use href="#i-moon" /></svg>
+                <div class="timeline-text">
+                    <span class="timeline-time">23:30</span>
+                    <h3>Fin de la Recepción</h3>
+                    <p>Gracias por acompañarnos</p>
                 </div>
             </li>
         </ol>
@@ -305,6 +323,12 @@
             <strong id="seats-display" class="pass-number">2</strong>
             <span id="seats-unit" class="pass-label">personas</span>
         </div>
+
+        <p class="rsvp-note reveal">
+            Te agradeceremos confirmar tu asistencia<br>
+            hasta el <span class="rsvp-date">viernes 23 de octubre</span>.
+            <span class="rsvp-note-soft">De no recibir tu respuesta, entenderemos con cariño que no podrás acompañarnos.</span>
+        </p>
 
         <form id="rsvp-form" class="rsvp-form reveal">
             <div class="field">

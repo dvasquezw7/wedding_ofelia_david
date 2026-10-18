@@ -408,6 +408,50 @@ button {
     color: var(--gold);
 }
 
+.venue-note {
+    position: relative;
+    max-width: 340px;
+    margin: -12px auto 36px;
+    padding-top: 22px;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+.venue-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    background: var(--gold-light);
+    transform: translateX(-50%);
+}
+
+.rsvp-note {
+    max-width: 380px;
+    margin: 0 auto 40px;
+    text-wrap: balance;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--ink-soft);
+}
+
+.rsvp-date {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--sage-dark);
+}
+
+.rsvp-note-soft {
+    display: block;
+    margin-top: 14px;
+    font-size: 1rem;
+}
+
 /* ==========================================
    PROGRAM TIMELINE
    ========================================== */
