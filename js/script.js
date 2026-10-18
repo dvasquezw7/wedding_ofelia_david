@@ -275,7 +275,7 @@ function closeLightbox() {
 }
 
 // ==========================================
-// RSVP FORM HANDLING (Google Forms Integration)
+// RSVP FORM HANDLING (WhatsApp)
 // ==========================================
 function initRSVPForm() {
     const form = document.getElementById('rsvp-form');
@@ -283,87 +283,39 @@ function initRSVPForm() {
 
     if (!form || !formMessage) return;
 
-    // Configuración de Google Form - Boda Ofelia & David
-    // TODO: pendiente crear el Google Form nuevo. Mientras GOOGLE_FORM_URL esté vacío
-    // el formulario no envía nada y el botón queda desactivado.
-    const GOOGLE_FORM_URL = '';
-    const ENTRY_IDS = {
-        name: 'entry.XXXXXXXXX',        // ID del campo Invitado(s)
-        attendance: 'entry.XXXXXXXXX',  // ID del campo Asistiran
-        message: 'entry.XXXXXXXXX'      // ID del campo Mensaje
-    };
+    // Número de la novia en formato internacional, solo dígitos (ej. 5917XXXXXXX)
+    const BRIDE_PHONE = '59168301882';
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        if (!GOOGLE_FORM_URL) return;
-
-        const submitBtn = form.querySelector('.submit-button');
-        const originalBtnText = submitBtn.textContent;
-
-        const nameValue = document.getElementById('name').value;
+        const nameValue = document.getElementById('name').value.trim();
         const attendanceValue = document.getElementById('attendance').value;
-        const messageValue = document.getElementById('message').value;
+        const seats = document.getElementById('seats-display').textContent;
 
-        // Validar que se haya seleccionado una opción
+        if (!nameValue) {
+            showFormError('Por favor escribe tu nombre.');
+            return;
+        }
         if (!attendanceValue) {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'Por favor selecciona si asistirás.';
-            formMessage.style.display = 'block';
+            showFormError('Por favor selecciona si asistirás.');
             return;
         }
 
-        // Bloquear botón y mostrar carga
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando...';
+        const seatsText = seats !== '?' ? ` (pase para ${seats} ${seats === '1' ? 'persona' : 'personas'})` : '';
+        const text = attendanceValue === 'yes'
+            ? `¡Hola Ofelia! Soy ${nameValue}. Con mucha alegría confirmo mi asistencia a su boda el 15 de noviembre${seatsText}. ¡Ahí estaremos! 💍`
+            : `¡Hola Ofelia! Soy ${nameValue}. Lamentablemente no podré acompañarlos en su boda. Les deseo un día muy feliz. 🤍`;
 
-        // Usar URLSearchParams para asegurar el formato application/x-www-form-urlencoded
-        const params = new URLSearchParams();
-        params.append(ENTRY_IDS.name, nameValue);
-        params.append(ENTRY_IDS.attendance, attendanceValue === 'yes' ? 'Si' : 'No');
-        params.append(ENTRY_IDS.message, messageValue);
-
-        try {
-            // Intentar envío a Google Forms (no-cors es esencial para evitar errores de preflight)
-            await fetch(GOOGLE_FORM_URL, {
-                method: 'POST',
-                body: params,
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            });
-
-            // Éxito
-            formMessage.className = 'form-message success';
-            formMessage.textContent = '¡Gracias por confirmar! Tu respuesta ha sido enviada con éxito.';
-            formMessage.style.display = 'block';
-            form.reset();
-            document.querySelectorAll('.choice-option').forEach(opt => opt.setAttribute('aria-checked', 'false'));
-
-            // Mantener el nombre del invitado si los parámetros siguen ahí
-            initGuestLimit();
-
-        } catch (error) {
-            console.error('Error al enviar:', error);
-            // Aunque falle el fetch por CORS (si no se usa no-cors), 
-            // generalmente el dato llega igual. Pero aquí usamos no-cors para mayor seguridad.
-            formMessage.className = 'form-message success'; // Usualmente Google responde con 0 en no-cors
-            formMessage.textContent = '¡Gracias por confirmar! Hemos recibido tu respuesta.';
-            formMessage.style.display = 'block';
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-
-            // Scroll suave al mensaje
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Ocultar mensaje después de unos segundos si es éxito
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 6000);
-        }
+        formMessage.style.display = 'none';
+        window.location.href = `https://wa.me/${BRIDE_PHONE}?text=${encodeURIComponent(text)}`;
     });
+
+    function showFormError(text) {
+        formMessage.className = 'form-message error';
+        formMessage.textContent = text;
+        formMessage.style.display = 'block';
+    }
 }
 
 // ==========================================
@@ -409,6 +361,9 @@ function initGuestLimit() {
     const nameInput = document.getElementById('name');
     if (guestName && nameInput) {
         nameInput.value = guestName;
+    } else if (nameInput) {
+        // Sin nombre en el link: el invitado lo escribe
+        nameInput.readOnly = false;
     }
 
     // Handle Gifts Visibility (regalos=no hides the section)
